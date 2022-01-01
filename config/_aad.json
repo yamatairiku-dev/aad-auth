@@ -1,0 +1,8 @@
+{
+  "authOptions":
+    {
+      "clientId": "your Apps clienrId",
+      "authority": "https://login.microsoftonline.com/comon",
+      "clientSecret": "your Apps clientSecret"
+    }
+}
