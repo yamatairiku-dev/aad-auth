@@ -7,6 +7,7 @@ const ALGORITHM = cryptoConfig.algorithm
 const INPUT_ENCODING = cryptoConfig.inputEncoding
 const OUTPUT_ENCODING = cryptoConfig.outputEncoding
 
+// セッション情報が不適切な場合は null を返す
 exports.validateSession = function (ciphered) {
   const dateUTC = new Date()
   const todayDate = dateUTC.toLocaleString({ timeZone: 'Asia/Tokyo' }).split(',')[0]
@@ -34,10 +35,11 @@ exports.makeSessionString = function (userId, userName) {
       userName: userName
     }
   }
-  console.log(`ログイン日時: ${session.loginDate}`)
   const cipher = crypto.createCipheriv(ALGORITHM, KEY, IV)
   let ciphered = cipher.update(Buffer.from(JSON.stringify(session),INPUT_ENCODING),INPUT_ENCODING,OUTPUT_ENCODING)
   ciphered += cipher.final(OUTPUT_ENCODING)
+
+  console.log(`ログイン日時: ${session.loginDate}`)
   console.log(`セッション文字列: ${ciphered}`)
   return ciphered
 }
