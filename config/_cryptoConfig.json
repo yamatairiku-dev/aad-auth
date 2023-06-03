@@ -1,8 +1,0 @@
-{
-  "keyStringEncoding":"hex",
-  "keyString":"共通鍵（256bit=32Byte）を16進数で表したのも",
-  "ivString":"イニシャルベクター（16Byte）を16進数で表したのも",
-  "algorithm":"aes-256-cbc",
-  "inputEncoding":"utf8",
-  "outputEncoding":"base64"
-}
